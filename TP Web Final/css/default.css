@@ -1,0 +1,205 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+
+/* Cette ligne fait en sorte que la couleur de fond du site sera blanche */
+
+body {
+    background-color: white;
+}
+
+
+/* Ici la forme rectangle est défini pour la page index.html */
+
+.carre1 {
+    border-radius: 25px;
+    background: #4A88B9;
+    padding: 20px;
+    width: 400px;
+    height: 280+px;
+}
+
+
+/* Cette classe permet de placer des objes (images, textes ...) ou je le souhaite horizantalement. */
+
+.postionRelative {
+    position: relative;
+}
+
+.postionAbsolue {
+    position: absolute;
+    left: 100px;
+}
+
+.postionRelative2 {
+    position: relative;
+}
+
+.postionAbsolue2 {
+    position: absolute;
+    left: 740px;
+}
+
+.postionRelative3 {
+    position: relative;
+}
+
+.postionAbsolue3 {
+    position: absolute;
+    left: 1250px;
+}
+
+.postionRelative4 {
+    position: relative;
+}
+
+.postionAbsolue4 {
+    position: absolute;
+    left: 30px;
+}
+
+.postionRelative1 {
+    position: relative;
+}
+
+.postionAbsolue1 {
+    position: absolute;
+    left: 200px;
+}
+
+.postionRelative8 {
+    position: relative;
+}
+
+.postionAbsolue8 {
+    position: absolute;
+    left: 800px;
+}
+
+.postionRelativePrototype {
+    position: relative;
+}
+
+.postionAbsoluePrototype {
+    position: absolute;
+    left: 1300px;
+}
+
+.postionRelativeImage2 {
+    position: relative;
+}
+
+.postionAbsolueImage2 {
+    position: absolute;
+    left: 250px;
+}
+
+
+/* Ces lignes de code font en sorte que le Menu du haut reste toujours présent et ceux, meme si on descend en bas de la page */
+
+.sticky {
+    position: sticky;
+    background-color: #003B99;
+}
+
+
+/* Tout ce qui commence par "nav" définit le design du Menu, les couleurs et tous les effets qu'il contient */
+
+nav li {
+    flex: 1 1 auto;
+    position: relative;
+    text-align: center;
+    font-family: "Century Gothic";
+}
+
+nav {
+    width: 100%;
+    top: 0px;
+    background-color: #16A1FF;
+}
+
+nav ul {
+    list-style-type: none;
+    font-size: 50px;
+    display: flex;
+    border-bottom: 2px solid #fff;
+}
+
+nav ul::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+nav a:hover {
+    color: black;
+    border-bottom: 2px solid black;
+}
+
+nav a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    border-bottom: 0px solid transparent;
+    padding: 28px 0PX;
+}
+
+
+/* Dans cette section, on définis la police d'écriture, la couleur et la taille de la balise paragraphe' */
+
+p {
+    font-family: "Agency FB";
+    color: white;
+    font-size: 27px;
+}
+
+
+/* Ici la forme rectangle est défini pour la page Accessoires.html. Les retangles sont plus gros que ceux de la page d'accueil    */
+
+.carre2 {
+    border-radius: 25px;
+    background: #4A88B9;
+    padding: 20px;
+    width: 500px;
+    height: 280+px;
+}
+
+
+/* Cette section permet au paragraphe de rester fixe afin qu'ils ne se mélange pas ou s'égare ailleurs */
+
+.clearfix {
+    overflow: auto;
+    clear: both;
+}
+
+
+/* Cette classe définit les caractéristiques des paragraphes par défaut pour un bloc de texte */
+
+.montexte {
+    font-size: 24px;
+    font-family: 'Agency FB';
+    color: black;
+    padding-left: 40px;
+    padding-right: 80px;
+}
+
+
+/* Cette classe définit les caractéristiques des paragraphes par défaut pour un bloc de texte */
+
+.montexte2 {
+    font-size: 20px;
+    font-family: 'Agency FB';
+    color: black;
+    padding-left: 40px;
+    padding-right: 600px;
+}
+
+
+/* Dans cette section, on définis une taille, une police d'écriture et une position pour la balise H1 */
+
+h1 {
+    font-family: 'Agency FB';
+    text-align: center;
+    font-size: 45px;
+}
