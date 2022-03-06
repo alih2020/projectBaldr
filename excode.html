@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <style>
+body {
+    background-color: grey;
+}
+
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+
+<body>
+    <p>/*
+        * To change this license header, choose License Headers in Project Properties.
+        <br></br>
+        * To change this template file, choose Tools | Templates
+        <br></br>
+        * and open the template in the editor.
+        <br></br>
+        */
+        <br></br>
+       package formatif21;
+       <br></br>
+       import java.util.Scanner;
+       <br></br>
+       /**
+       <br></br>
+        *
+        <br></br>
+        * @author usager
+        <br></br>
+        */
+        <br></br>
+       public class formatif21 {
+        <br></br>
+           /**
+           <br></br>
+            * @param args the command line arguments Cette méthode main déclare toutes
+            <br></br>
+            * les valeurs essentielles qui seront utiliser tout au long du travail. De
+            <br></br>
+            * plus, ce méthode main comporte aussi plusieurs méthodes qui seront
+            <br></br>
+            * évidemment entrer à partir de cette méthode là.
+            <br></br>
+            */
+            <br></br>
+            public static void main(String[] args) {
+                <br></br>
+                   // Déclaration de la méthode pour l'ouverture de la ligne sportive
+                   <br></br>Introduction();
+                   <br></br>  int nombrelut;
+                   <br></br>   // Déclaration de la méthode pour déterminer le nombre d'équipes
+                   <br></br>nombrelut = DeterminerEquipe();
+                   <br></br>  String[] nom = new String[nombrelut];
+                   <br></br>// Déclaration des tableaux qui seront utiliser par la suite
+                   <br></br>int[] PJ = new int[nombrelut];
+                   <br></br> int[] victoire = new int[nombrelut];
+                   <br></br>int[] defaite = new int[nombrelut];
+                   <br></br>int[] pointstotal = new int[nombrelut];
+       
+                   <br></br>NommerEquipe(nom);
+                   <br></br>AffichageTableauEquipe(nom, PJ, victoire, defaite, pointstotal);
+       
+                   <br></br>MenuEntree(nom, PJ, victoire, defaite, pointstotal);
+                   <br></br>}
+       
+                   <br></br>/**
+                   <br></br>* Cette méthode introduira la ligne sportive tout simplement
+                   <br></br>*/
+                   <br></br>private static void Introduction() {
+                    <br></br>System.out.println("Bienvenu dans la ligue sportive où 3 équipes");
+               <br></br> System.out.println("ou plus compétitionneront entre eux. L'équipe avec");
+               <br></br>System.out.println("le plus de points sera le champion de la ligue ");
+              
+               
+               <br></br>              System.out.println("sportive et ainsi remportera une médaille d'or!");
+               <br></br>      System.out.println(" Faite l'analyse des résulats obtenus: ");
+               <br></br>    System.out.println("-------------------------------------------------");
+               <br></br>}
+       
+               <br></br>   /**
+               <br></br> * Cette méthode demandera le nombre d'équipe et dira qu'il doit avoir au
+               <br></br>* moins 3 équipes. Le tableau prendra la taille du nombre qu'on aurait
+               <br></br>* entrer
+               <br></br>*
+               <br></br> * @return le nombre d'équipe qui est entrer
+               <br></br>*/
+               <br></br> private static int DeterminerEquipe() {
+                <br></br>Scanner r = new Scanner(System.in);
+                <br></br>int nombreEquipe;
+       
+                <br></br>do {
+                    <br></br> System.out.println("Combien y a-t-il d'équipes dans la ligue?");
+                    <br></br> nombreEquipe = r.nextInt();
+                    <br></br> } while (nombreEquipe < 3);
+       
+                    <br></br> return nombreEquipe;
+                    <br></br> }
+       
+                    <br></br>/**
+                    <br></br>   * Cette méthode permettra d'afficher les noms des équipes,elle affichera
+                    <br></br>* autant d'équipes que nous avions définie dans la méthode préédente. Les
+                    <br></br>* noms des équipes ne peuvent être similaires et ne peuvent être vides. Et
+                    <br></br>* si cela est le cas,l'ordinateur doit afficher un message d'erreur
+                    <br></br>*
+                    <br></br> * @param nom
+                    <br></br>*/
+                    <br></br>private static void NommerEquipe(String[] tab) {
+                        <br></br> Scanner r = new Scanner(System.in);
+                        <br></br> // Tant que toutes les nom des équipes n'ont pas été entrées
+                        <br></br> // lire un nom d'équipe
+                        <br></br>// Vérifier que le nom d'équipe n'Existe pas déjà
+                        <br></br> // Resaissir si le nom d'équipe est vide
+                        <br></br>   for (int i = 0; i < tab.length; i++) {
+                            <br></br>   System.out.println("Entrez un nom pour une équipe: ");
+                            <br></br>   tab[i] = r.nextLine();
+                            <br></br>   if (tab[i].length() == 0) {
+                                <br></br>  System.out.println("Un nom d'équipe ne peut rester vide");
+       
+                                <br></br>i--;
+                                <br></br> }
+                                <br></br>for (int j = 0; j < i; j++) {
+                                    <br></br> if (tab[j].equals(tab[i])) {
+                                        <br></br> System.out.println("Cette équipe existe déja!!");
+                                        <br></br> System.out.println("");
+                                        <br></br>  i--;
+                                        <br></br> }
+                                        <br></br>}
+                                        <br></br> }
+                                        <br></br>}
+       
+                                        <br></br>/**
+                                        <br></br>* Affichage du tableau où chacune de ces paramètres sont à 0 par default
+                                        <br></br>* Dans d'autres mots, Chaque colonne ou case des tableaux seront à 0. Les
+                                        <br></br>*
+                                        <br></br>* @param = paramètres ne sont que des tableaux.
+                                        <br></br>*
+                                        <br></br>* @param nom
+                                        <br></br>* @param PJ
+                                        <br></br> * @param victoire
+                                        <br></br>* @param defaite
+                                        <br></br>* @param pointstotal
+                                        <br></br>*/
+                                        <br></br>private static void AffichageTableauEquipe(String[] nom, int[] PJ,
+                                        <br></br>int[] victoire, int[] defaite, int[] pointstotal) {
+                                            <br></br>System.out.println("==================================================");
+                                            <br></br>System.out.println("Nom d'équipe" + "\t" + "PJ" + "\t" + "victoire"
+                       + "\t" + "defaite" + "\t" + "points");
+                       <br></br>    System.out.println("---------------------------------------------------");
+       
+                       <br></br>         for (int i = 0; i < pointstotal.length; i++) {
+                        <br></br>    System.out.println(nom[i] + "\t" + "\t" + PJ[i] + "\t" + victoire[i]
+                           + "\t" + "\t" + defaite[i] + "\t" + pointstotal[i]);
+                           <br></br>}
+                           <br></br>}
+       
+                           <br></br>/**
+                           <br></br>      * Tant que l'utilisateur entre autre que 1 ou 2 comme choix, l'ordinateur
+                           <br></br>    * demande une autre saisie en mettant une option acceptable Si
+                           <br></br>* l'utilisateur entre 1, on entre dans une autre méthode,appelé
+                           <br></br> * ClasserTeam. Si l'utilisateur entre 2 comme choix, alors on aurait à
+                           <br></br>* quitter la ligue sportive sur le champs.
+                           <br></br> *
+                           <br></br> * @param nom
+                           <br></br> * @param PJ
+                           <br></br>* @param victoire
+                           <br></br>* @param defaite
+                           <br></br>   * @param pointstotal
+                           <br></br>*/
+                           <br></br>private static void MenuEntree(String[] tab, int[] PJ, int[] victoire,
+                           <br></br>  int[] defaite, int[] pointstotal) {
+                            <br></br> Scanner r = new Scanner(System.in);
+                            <br></br>  int choix;
+       
+                            <br></br>do {
+                                <br></br>System.out.println("===============================================");
+                                <br></br>   System.out.println("");
+                                <br></br> System.out.println("1) Entrez un résultat");
+                                <br></br>System.out.println("2) Quitter");
+                                <br></br> System.out.println("-----------------------------------------------");
+                                <br></br>     do {
+                                    <br></br> System.out.println("Entrez votre choix: ");
+                                    <br></br> choix = r.nextInt();
+                                    <br></br>     switch (choix) {
+                                        <br></br>    case 1:
+                                        <br></br>// Si choix 1 | On entre dans une méthode différente
+                                        <br></br> ClasserTeam(tab, PJ, victoire, defaite, pointstotal);
+                                        <br></br>    break;
+                                        <br></br>   case 2:
+                                        <br></br>  break;
+                                        <br></br> default:
+                                        <br></br>  System.out.println("Entrez une option valable!!");
+                                        <br></br>}
+                                        <br></br> } while (choix != 1 && choix != 2);
+                                        <br></br>// Si choix = 2 | l'utilisateur quitte la ligue sportive sur le champs
+                                        <br></br>   } while (choix != 2);
+                                        <br></br>System.out.println("");
+                                        <br></br>System.out.println("Merci d'avoir assister à la ligue sportive!");
+                                        <br></br>}
+       
+                                        <br></br>/**
+                                        <br></br>  * Cette méthode s'applique uniquement si nous avons entrer 1 comme choix
+                                        <br></br>* dans la méthode précédente,dans la méthode MenuEntree. C'est l'option 1
+                                        <br></br>          * qui a permis d'entrer dans cette méthode là. Cette méthode doit classer
+                                        <br></br>  * les équipes d'Abord et demander par la suite l'équipe gagnante ainsi que
+                                        <br></br>    * l'équipe perdante
+                                        <br></br> *
+                                        <br></br>   * @param nom
+                                        <br></br>* @param PJ
+                                        <br></br>  * @param victoire
+                                        <br></br>* @param defaite
+                                        <br></br>* @param pointstotal
+                                        <br></br>*/
+                                        <br></br>private static void ClasserTeam(String[] nom, int[] PJ, int[] victoire,
+                   int[] defaite, int[] pointstotal) {
+       
+                    <br></br>Scanner r = new Scanner(System.in);
+                    <br></br> int equipegagnante;
+                    <br></br> int equipeperdante;
+                    <br></br>System.out.println("Vous avez choisi d'entrer un résultat ");
+                    <br></br>  System.out.println("Les équipes sont les suivantes:");
+       
+                    <br></br>for (int i = 0; i < nom.length; i++) {
+                        <br></br>System.out.println(i + 1 + ")" + " " + nom[i]);
+                        <br></br>}
+       
+                        <br></br> System.out.println("Identifier l'équipe gagnante: ");
+                        <br></br>equipegagnante = r.nextInt();
+                        <br></br>// Calcule pour entrer le donnée dans le tableau victoire
+                        <br></br>victoire[equipegagnante - 1] += 1;
+                        <br></br> do {
+                            <br></br>System.out.println("Identifier l'équipe perdante: ");
+                            <br></br>equipeperdante = r.nextInt();
+                            <br></br>//Condition pour l'affichage du message et pour des buts estétiques
+                            <br></br>  if (equipegagnante == equipeperdante) {
+                                <br></br>System.out.println("L'équipe gagnante ne peut être l'équipe"
+                               + " perdante");
+                               <br></br>   System.out.println("");
+                               <br></br>}
+                               <br></br>} while (equipegagnante == equipeperdante);
+                               <br></br> // Calcule pour entrer le donnée dans le tableau défaite
+                               <br></br>  defaite[equipeperdante - 1] += 1;
+                               <br></br> AugmenterlesPoints(PJ, victoire, defaite, pointstotal);
+       
+                               <br></br>AffichageTableauEquipe(nom, PJ, victoire, defaite, pointstotal);
+       
+                               <br></br> } 
+       
+                               <br></br>/*
+                               <br></br> * Cette méthode permettra de modifier les données du tableau par rapport à
+                               <br></br>* ce que nous entrions. Elle calculera les données comme l'ensemble de
+                               <br></br> * victoires et de défaites équivaut au partis jouées et la multiplication
+                               <br></br>* des victoires par 2 équivaut au point totals entre les 2 équipes qui sont
+                               <br></br>      * en compétition, le tableau modifié se reaffichera.
+                               <br></br>*
+                               <br></br>  * @param PJ
+                               <br></br> * @param victoire
+                               <br></br>* @param defaite
+                               <br></br>* @param pointstotal
+                               <br></br>*/
+                               <br></br>private static void AugmenterlesPoints(int[] PJ, int[] victoire,
+                               <br></br>   int[] defaite, int[] pointstotal) {
+                                <br></br>for (int i = 0; i < PJ.length; i++) {
+                                    <br></br>PJ[i] = victoire[i] + defaite[i];
+                                    <br></br> }
+                                    <br></br>for (int i = 0; i < pointstotal.length; i++) {
+                <br></br>    pointstotal[i] = victoire[i] * 2;
+       
+                <br></br>}
+                <br></br>}
+                <br></br>}
+       
+        </p>
+</body>
+</html>
